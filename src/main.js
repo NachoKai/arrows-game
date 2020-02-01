@@ -21,14 +21,16 @@ let pc = {
     keyRight: false
 };
 
-let yourScore = 0;
+let yourScore = 0
 let resetBtn = document.getElementById('reset')
 let score = document.querySelector("#game-score")
 let highScore = document.querySelector("#high-score")
+let gameOn = false;
 
 startGame();
 
 document.addEventListener("keydown", e => {
+
     switch (e.keyCode) {
         case keys.arrowUp:
             pressUp()
@@ -48,6 +50,7 @@ document.addEventListener("keydown", e => {
 });
 
 function randomKeys() {
+    timerStart();
     let randomNumber = Math.floor(Math.random() * 4 + 1);
 
     switch (randomNumber) {
@@ -81,14 +84,11 @@ function randomKeys() {
 }
 
 function scoreUp() {
-
     yourScore++;
     score.value = yourScore
 }
 
 function assignHighScore() {
-
-
     let nodoPMaximo = $form.pmaximo,
         nodoPuntaje = $form.puntaje,
         puntaje = Number(nodoPuntaje.value),
@@ -97,7 +97,6 @@ function assignHighScore() {
         nodoPMaximo.value = puntaje;
     }
 }
-
 
 function scoreDown() {
     let score = document.querySelector("#game-score");
@@ -166,10 +165,14 @@ function deleteKey() {
 }
 
 function startGame() {
+    gameOn = true;
+    let timer = document.querySelector("#time");
+    timer.value = 10;
     addKey();
 }
 
 function pressUp() {
+
     user.keyUp = true;
     user.keyDown = false;
     user.keyLeft = false;
@@ -180,6 +183,7 @@ function pressUp() {
 }
 
 function pressDown() {
+
     user.keyDown = true;
     user.keyUp = false;
     user.keyLeft = false;
@@ -190,6 +194,7 @@ function pressDown() {
 }
 
 function pressLeft() {
+
     user.keyLeft = true;
     user.keyUp = false;
     user.keyDown = false;
@@ -200,6 +205,7 @@ function pressLeft() {
 }
 
 function pressRight() {
+
     user.keyRight = true;
     user.keyUp = false;
     user.keyDown = false;
@@ -210,26 +216,32 @@ function pressRight() {
 }
 
 function timerStart() {
-    let timer = document.querySelector("#time");
-    timer.value = 10
-    let downloadTimer = setInterval(function () {
-        timer.innerHTML = timer.value;
-        timer.value -= 1;
-        if (timer.value <= 0) {
-            clearInterval(downloadTimer);
-            timer.value = "Finished!";
-            Swal.fire(
-                "Time's up!",
-                "Points:",
-                "warning"
-            );
-        }
-    }, 1000);
+    if (gameOn === true) {
+        gameOn = false
+        let timer = document.querySelector("#time");
+        timer.value = 10;
+        let downloadTimer = setInterval(function () {
+            timer.innerHTML = timer.value;
+            timer.value -= 1;
+            if (timer.value <= 0) {
+                clearInterval(downloadTimer);
+                timer.value = "Finished!";
+                Swal.fire("Time's up!", "Points:", "warning");
+                gameOn = true;
+            }
+        }, 1000);
+    } else {
+        return () => {}
+    }
 }
 
-timerStart();
-
-resetBtn.addEventListener('click', () => {
+function timerStop() {
     let timer = document.querySelector("#time");
     timer.value = 10;
+    timer.innerHTML = timer.value;
+
+}
+
+resetBtn.addEventListener('click', () => {
+    timerStop();
 })
