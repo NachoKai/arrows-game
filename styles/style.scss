@@ -76,25 +76,55 @@ body {
 }
 
 .table {
-    justify-content: center;
     align-content: center;
     align-items: center;
-    display: flex;
     background-color: #ffffff;
     border-radius: 10px;
     border: solid 2px #e0e0e0;
-    padding: 10px;
+    display: flex;
+    justify-content: center;
     margin: 10px;
+    padding: 10px;
 
     .key {
+        border-radius: 25px;
         min-height: 250px;
 
         img {
+            border-radius: 25px;
             max-width: 250px;
             min-width: 250px;
             padding: 10px;
         }
     }
+}
+
+.key-press-ok {
+    img {
+        border-radius: 25px;
+        max-width: 240px;
+        min-width: 240px;
+        padding: 10px;
+    }
+
+    background-color: #23b14d;
+    border-radius: 25px;
+    min-height: 250px;
+    opacity: 0.5;
+}
+
+.key-press-wrong {
+    img {
+        border-radius: 25px;
+        max-width: 240px;
+        min-width: 240px;
+        padding: 10px;
+    }
+
+    background-color: #ed1b24;
+    border-radius: 25px;
+    min-height: 250px;
+    opacity: 0.5;
 }
 
 @media only screen and (max-width: 500px) {
@@ -150,7 +180,7 @@ footer {
     height: 20px;
     font-size: 12px;
     margin: 0% auto 0;
-    margin-top: 10px;
+    margin-top: 30px;
 
     a {
         text-decoration: none;

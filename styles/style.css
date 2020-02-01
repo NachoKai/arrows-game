@@ -76,31 +76,61 @@ body {
 }
 
 .table {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   background-color: #ffffff;
   border-radius: 10px;
   border: solid 2px #e0e0e0;
-  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 10px;
+  padding: 10px;
 }
 
 .table .key {
+  border-radius: 25px;
   min-height: 250px;
 }
 
 .table .key img {
+  border-radius: 25px;
   max-width: 250px;
   min-width: 250px;
+  padding: 10px;
+}
+
+.key-press-ok {
+  background-color: #23b14d;
+  border-radius: 25px;
+  min-height: 250px;
+  opacity: 0.5;
+}
+
+.key-press-ok img {
+  border-radius: 25px;
+  max-width: 240px;
+  min-width: 240px;
+  padding: 10px;
+}
+
+.key-press-wrong {
+  background-color: #ed1b24;
+  border-radius: 25px;
+  min-height: 250px;
+  opacity: 0.5;
+}
+
+.key-press-wrong img {
+  border-radius: 25px;
+  max-width: 240px;
+  min-width: 240px;
   padding: 10px;
 }
 
@@ -171,7 +201,7 @@ footer {
   height: 20px;
   font-size: 12px;
   margin: 0% auto 0;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 footer a {

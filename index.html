@@ -30,12 +30,15 @@
         <div class="row text-center">
             <div class="col-sm-6 text-center">
                 <div class="buttons">
-                    <div class="time">
+                    <div class="time" id="time">
                         <input type="text" value="00:10" disabled>
                         <i class="far fa-clock"></i>
                     </div>
-                    <div class="reset">
-                        <button><i class="fas fa-undo-alt"></i><b> Reset</b></button>
+                    <div class="reset" id="reset">
+                        <button>
+                            <i class="fas fa-undo-alt"></i>
+                            <b> Reset</b>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -44,9 +47,8 @@
 
         <div class="row text-center">
             <div class="col-sm-12 text-center">
-                <div class="table">
-                    <div class="key">
-                        <img src="img/down-arrow-key.png" alt="">
+                <div class="table" id="table">
+                    <div class="key" id="key">
                     </div>
                 </div>
             </div>
@@ -55,12 +57,13 @@
         <div class="row text-center">
             <div class="col-sm-6 text-center">
                 <div class="scores">
-                    <div class="best-score">
+                    <div class="best-score" id="high-score">
                         <b>HIGH SCORE</b>
                         <i class="fas fa-crown">
                             <input type="number" placeholder="000" disabled></i>
                     </div>
-                    <div class="game-score"><b>YOUR SCORE</b>
+                    <div class="game-score" id="game-score">
+                        <b>YOUR SCORE</b>
                         <i class="fas fa-hat-wizard">
                             <input type="number" placeholder="000" disabled></i>
                     </div>

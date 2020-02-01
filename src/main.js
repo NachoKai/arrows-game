@@ -7,122 +7,125 @@ let keys = {
     arrowRight: 39
 };
 
-let keyUp = false;
-let keyDown = false;
-let keyLeft = false;
-let keyRight = false;
+let user = {
+    keyUp: false,
+    keyDown: false,
+    keyLeft: false,
+    keyRight: false
+};
+
+let pc = {
+    keyUp: false,
+    keyDown: false,
+    keyLeft: false,
+    keyRight: false
+};
 
 let yourScore = 0;
 let highScore = 0;
-
 let timer = 0;
 
-document.addEventListener("keydown", e => {
-    switch (e.keyCode) {
-        case keys.arrowUp:
-            keyUp = true;
-            keyDown = false;
-            keyLeft = false;
-            keyRight = false;
-            console.log("up");
-            deleteKey();
-            addKey();
-            randomKeys();
+startGame();
+
+function randomKeys() {
+    let randomNumber = Math.floor(Math.random() * 4 + 1);
+
+    switch (randomNumber) {
+        case 1:
+            pc.keyUp = true;
+            pc.keyDown = false;
+            pc.keyLeft = false;
+            pc.keyRight = false;
+            return;
+        case 2:
+            pc.keyUp = false;
+            pc.keyDown = true;
+            pc.keyLeft = false;
+            pc.keyRight = false;
             break;
-        case keys.arrowDown:
-            keyDown = true;
-            keyUp = false;
-            keyLeft = false;
-            keyRight = false;
-            console.log("down");
-            deleteKey();
-            addKey();
-            randomKeys();
+        case 3:
+            pc.keyUp = false;
+            pc.keyDown = false;
+            pc.keyLeft = true;
+            pc.keyRight = false;
             break;
-        case keys.arrowLeft:
-            keyLeft = true;
-            keyUp = false;
-            keyDown = false;
-            keyRight = false;
-            console.log("left");
-            deleteKey();
-            addKey();
-            randomKeys();
-            break;
-        case keys.arrowRight:
-            keyRight = true;
-            keyUp = false;
-            keyDown = false;
-            keyLeft = false;
-            console.log("right");
-            deleteKey();
-            addKey();
-            randomKeys();
+        case 4:
+            pc.keyUp = false;
+            pc.keyDown = false;
+            pc.keyLeft = false;
+            pc.keyRight = true;
             break;
         default:
             return null;
     }
-});
-
-function randomKeys() {
-    const randomNumber = Math.floor(Math.random() * 4 + 1)
-
-    switch (randomNumber) {
-        case 1:
-            console.log("UP")
-            break;
-        case 2:
-            console.log("DOWN")
-            break;
-        case 3:
-            console.log("LEFT")
-            break;
-        case 4:
-            console.log("RIGHT")
-            break;
-        default:
-            break;
-    }
 }
-
-randomKeys()
 
 function scoreUp() {
     if (keyUp === true) {
-        yourScore++
+        yourScore++;
     }
 }
 
 function addKey() {
-    let key = ''
-    let imgDiv = document.querySelector(".key")
+    let randomNumber = Math.floor(Math.random() * 4 + 1);
+    let imgDiv = document.querySelector(".key");
     let img = document.createElement("img");
 
+    if (randomNumber === 1) {
+        img.src = `img/right-arrow-key.png`;
+        imgDiv.appendChild(img);
 
-    if (keyUp === true) {
-        key = "up-arrow-key.png";
-        img.src = `img/${key}`;
+        // if (keyUp === true) {
+        //     img.src = `img/up-arrow-key.png`;
+        //     imgDiv.appendChild(img);
+        //     imgDiv.className = "key-press-ok";
+        //     setTimeout(() => {
+        //         imgDiv.className = "key";
+        //     }, 100);
+        // } else if (keyUp === false) {
+        //     img.src = `img/up-arrow-key.png`;
+        //     imgDiv.appendChild(img);
+        //     imgDiv.className = "key-press-wrong";
+        //     setTimeout(() => {
+        //         imgDiv.className = "key";
+        //     }, 100);
+        // }
+    }
+    if (randomNumber === 2) {
+        img.src = `img/up-arrow-key.png`;
         imgDiv.appendChild(img);
     }
-    if (keyDown === true) {
-        key = "down-arrow-key.png";
-        img.src = `img/${key}`;
+    if (randomNumber === 3) {
+        img.src = `img/left-arrow-key.png`;
         imgDiv.appendChild(img);
     }
-    if (keyLeft === true) {
-        key = "left-arrow-key.png";
-        img.src = `img/${key}`;
+    if (randomNumber === 4) {
+        img.src = `img/right-arrow-key.png`;
         imgDiv.appendChild(img);
     }
-    if (keyRight === true) {
-        key = "right-arrow-key.png";
-        img.src = `img/${key}`;
-        imgDiv.appendChild(img);
-    }
+
+    // if (keyDown === true) {
+    //     key = "down-arrow-key.png";
+    //     img.src = `img/${key}`;
+    //     imgDiv.appendChild(img);
+    // }
+    // if (keyLeft === true) {
+    //     key = "left-arrow-key.png";
+    //     img.src = `img/${key}`;
+    //     imgDiv.appendChild(img);
+    // }
+    // if (keyRight === true) {
+    //     key = "right-arrow-key.png";
+    //     img.src = `img/${key}`;
+    //     imgDiv.appendChild(img);
+    // }
 }
 
 function deleteKey() {
     let imgDiv = document.querySelector(".key");
-    imgDiv.innerHTML = ''
+    imgDiv.innerHTML = "";
+}
 
+function startGame() {
+    addKey();
 }
