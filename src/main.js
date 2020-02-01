@@ -23,7 +23,6 @@ let pc = {
 
 let yourScore = 0;
 let highScore = 0;
-let timer = 0;
 
 startGame();
 
@@ -194,3 +193,19 @@ function pressRight() {
     addKey();
     randomKeys();
 }
+
+function timerStart() {
+    let timer = document.querySelector("#time");
+    timer.value = 10
+    let downloadTimer = setInterval(function () {
+        timer.innerHTML = timer.value;
+        timer.value -= 1;
+        if (timer.value <= 0) {
+            clearInterval(downloadTimer);
+            timer.value = "Finished!";
+        }
+    }, 1000);
+
+}
+
+timerStart();
