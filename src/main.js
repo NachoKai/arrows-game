@@ -22,7 +22,9 @@ let pc = {
 };
 
 let yourScore = 0;
-let highScore = 0;
+let resetBtn = document.getElementById('reset')
+let score = document.querySelector("#game-score")
+let highScore = document.querySelector("#high-score")
 
 startGame();
 
@@ -79,10 +81,23 @@ function randomKeys() {
 }
 
 function scoreUp() {
-    let score = document.querySelector('#game-score')
+
     yourScore++;
     score.value = yourScore
 }
+
+function assignHighScore() {
+
+
+    let nodoPMaximo = $form.pmaximo,
+        nodoPuntaje = $form.puntaje,
+        puntaje = Number(nodoPuntaje.value),
+        pmaximo = Number(nodoPMaximo.value);
+    if (puntaje > pmaximo) {
+        nodoPMaximo.value = puntaje;
+    }
+}
+
 
 function scoreDown() {
     let score = document.querySelector("#game-score");
@@ -203,9 +218,18 @@ function timerStart() {
         if (timer.value <= 0) {
             clearInterval(downloadTimer);
             timer.value = "Finished!";
+            Swal.fire(
+                "Time's up!",
+                "Points:",
+                "warning"
+            );
         }
     }, 1000);
-
 }
 
 timerStart();
+
+resetBtn.addEventListener('click', () => {
+    let timer = document.querySelector("#time");
+    timer.value = 10;
+})
