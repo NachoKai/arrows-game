@@ -16,17 +16,35 @@ body {
   background-color: #161616 !important;
 }
 
+.container {
+  padding: 0px !important;
+}
+
 .title {
+  min-width: 235px;
+  padding-bottom: 5px;
   color: #ffffff;
   font-size: 4rem;
   font-weight: 600;
 }
 
+.title i {
+  position: relative;
+  top: 5px;
+}
+
 .description {
+  min-width: 235px;
   color: #ffffff;
   font-size: 0.9rem;
   font-weight: 400;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
+}
+
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .time {
@@ -35,16 +53,27 @@ body {
 }
 
 .time input {
+  max-width: 100px;
+  min-width: 100px;
   border-radius: 10px;
   padding: 8px;
 }
 
+.time i {
+  color: #000000;
+  position: relative;
+  left: -30px;
+}
+
 .reset button {
+  max-width: 100px;
+  min-width: 100px;
   border-radius: 10px;
   padding: 8px;
 }
 
 .table {
+  min-width: 500px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -72,6 +101,19 @@ body {
 
 .table .key3 {
   padding: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .table {
+    height: auto;
+    display: block;
+  }
+}
+
+.scores {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .best-score {
