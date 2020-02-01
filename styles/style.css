@@ -45,9 +45,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-bottom: 10px;
 }
 
 .time {
+  max-height: 44px;
   color: #ffffff;
   padding-bottom: 20px;
 }
@@ -74,7 +76,6 @@ body {
 }
 
 .table {
-  min-width: 500px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -93,20 +94,26 @@ body {
 }
 
 .table .key1 {
+  max-width: 128px;
+  min-width: 128px;
   padding: 10px;
 }
 
 .table .key2 {
+  max-width: 128px;
+  min-width: 128px;
   padding: 10px;
 }
 
 .table .key3 {
+  max-width: 128px;
+  min-width: 128px;
   padding: 10px;
 }
 
 @media only screen and (max-width: 500px) {
   .table {
-    height: auto;
+    max-width: 320px;
     display: block;
   }
 }
@@ -115,6 +122,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .best-score {
@@ -194,5 +204,10 @@ footer a:hover {
 
 :-ms-input-placeholder {
   text-align: center;
+}
+
+img {
+  max-width: 128px;
+  min-width: 128px;
 }
 /*# sourceMappingURL=style.css.map */
