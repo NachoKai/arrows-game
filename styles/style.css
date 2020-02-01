@@ -98,12 +98,12 @@ input {
   padding: 10px;
 }
 
-.table .key {
+.table #key {
   border-radius: 25px;
   min-height: 250px;
 }
 
-.table .key img {
+.table #key img {
   border-radius: 25px;
   max-width: 250px;
   min-width: 250px;

@@ -21,80 +21,111 @@ let pc = {
     keyRight: false
 };
 
-let yourScore = 0
-let resetBtn = document.getElementById('reset')
-let score = document.querySelector("#game-score")
-let highScore = document.querySelector("#high-score")
+let yourScore = 0;
+let resetBtn = document.getElementById("reset");
+let score = document.querySelector("#game-score");
+let highScore = document.querySelector("#high-score");
 let gameOn = false;
 
-startGame();
+startGame()
+
+function startGame() {
+    gameOn = true;
+    let timer = document.querySelector("#time");
+    timer.value = 10;
+    addKey();
+}
+
+function addKey() {
+    let randomNumber = Math.floor(Math.random() * 4 + 1);
+    let imgDiv = document.querySelector("#key");
+    let img = document.createElement("img");
+
+    if (randomNumber === 1) {
+        img.src = `img/right-arrow-key.png`;
+        imgDiv.appendChild(img);
+        pc.keyUp = true;
+        pc.keyDown = false;
+        pc.keyLeft = false;
+        pc.keyRight = false;
+    }
+    if (randomNumber === 2) {
+        img.src = `img/up-arrow-key.png`;
+        imgDiv.appendChild(img);
+        pc.keyUp = false;
+        pc.keyDown = true;
+        pc.keyLeft = false;
+        pc.keyRight = false;
+    }
+    if (randomNumber === 3) {
+        img.src = `img/left-arrow-key.png`;
+        imgDiv.appendChild(img);
+        pc.keyUp = false;
+        pc.keyDown = false;
+        pc.keyLeft = true;
+        pc.keyRight = false;
+    }
+    if (randomNumber === 4) {
+        img.src = `img/right-arrow-key.png`;
+        imgDiv.appendChild(img);
+        pc.keyUp = false;
+        pc.keyDown = false;
+        pc.keyLeft = false;
+        pc.keyRight = true;
+    }
+}
 
 document.addEventListener("keydown", e => {
-
     switch (e.keyCode) {
         case keys.arrowUp:
-            pressUp()
+            timerStart();
+            pressUp();
+            if (pc.keyUp === true) {
+                correct();
+            } else {
+                incorrect();
+            }
             break;
         case keys.arrowDown:
+            timerStart();
             pressDown();
+            if (pc.keyDown === true) {
+                correct();
+            } else {
+                incorrect();
+            }
             break;
         case keys.arrowLeft:
+            timerStart();
             pressLeft();
+            if (pc.keyLeft === true) {
+                correct();
+            } else {
+                incorrect();
+            }
             break;
         case keys.arrowRight:
+            timerStart();
             pressRight();
+            if (pc.keyRight === true) {
+                correct();
+            } else {
+                incorrect();
+            }
             break;
         default:
             return null;
     }
 });
 
-function randomKeys() {
-    timerStart();
-    let randomNumber = Math.floor(Math.random() * 4 + 1);
-
-    switch (randomNumber) {
-        case 1:
-            pc.keyUp = true;
-            pc.keyDown = false;
-            pc.keyLeft = false;
-            pc.keyRight = false;
-            return;
-        case 2:
-            pc.keyUp = false;
-            pc.keyDown = true;
-            pc.keyLeft = false;
-            pc.keyRight = false;
-            break;
-        case 3:
-            pc.keyUp = false;
-            pc.keyDown = false;
-            pc.keyLeft = true;
-            pc.keyRight = false;
-            break;
-        case 4:
-            pc.keyUp = false;
-            pc.keyDown = false;
-            pc.keyLeft = false;
-            pc.keyRight = true;
-            break;
-        default:
-            return null;
-    }
-}
-
 function scoreUp() {
     yourScore++;
-    score.value = yourScore
+    score.value = yourScore;
 }
 
 function assignHighScore() {
-    let nodoPMaximo = $form.pmaximo,
-        nodoPuntaje = $form.puntaje,
-        puntaje = Number(nodoPuntaje.value),
-        pmaximo = Number(nodoPMaximo.value);
-    if (puntaje > pmaximo) {
-        nodoPMaximo.value = puntaje;
+    if (yourScore > highScore) {
+        highScore.value = yourScore;
     }
 }
 
@@ -104,120 +135,42 @@ function scoreDown() {
     score.value = yourScore;
 }
 
-function addKey() {
-    let randomNumber = Math.floor(Math.random() * 4 + 1);
-    let imgDiv = document.querySelector(".key");
-    let img = document.createElement("img");
-
-    if (randomNumber === 1) {
-        img.src = `img/right-arrow-key.png`;
-        imgDiv.appendChild(img);
-
-        // if (keyUp === true) {
-        //     img.src = `img/up-arrow-key.png`;
-        //     imgDiv.appendChild(img);
-        //     imgDiv.className = "key-press-ok";
-        //     setTimeout(() => {
-        //         imgDiv.className = "key";
-        //     }, 100);
-        // } else if (keyUp === false) {
-        //     img.src = `img/up-arrow-key.png`;
-        //     imgDiv.appendChild(img);
-        //     imgDiv.className = "key-press-wrong";
-        //     setTimeout(() => {
-        //         imgDiv.className = "key";
-        //     }, 100);
-        // }
-    }
-    if (randomNumber === 2) {
-        img.src = `img/up-arrow-key.png`;
-        imgDiv.appendChild(img);
-    }
-    if (randomNumber === 3) {
-        img.src = `img/left-arrow-key.png`;
-        imgDiv.appendChild(img);
-    }
-    if (randomNumber === 4) {
-        img.src = `img/right-arrow-key.png`;
-        imgDiv.appendChild(img);
-    }
-
-    // if (keyDown === true) {
-    //     key = "down-arrow-key.png";
-    //     img.src = `img/${key}`;
-    //     imgDiv.appendChild(img);
-    // }
-    // if (keyLeft === true) {
-    //     key = "left-arrow-key.png";
-    //     img.src = `img/${key}`;
-    //     imgDiv.appendChild(img);
-    // }
-    // if (keyRight === true) {
-    //     key = "right-arrow-key.png";
-    //     img.src = `img/${key}`;
-    //     imgDiv.appendChild(img);
-    // }
-}
-
 function deleteKey() {
-    let imgDiv = document.querySelector(".key");
+    let imgDiv = document.querySelector("#key");
     imgDiv.innerHTML = "";
 }
 
-function startGame() {
-    gameOn = true;
-    let timer = document.querySelector("#time");
-    timer.value = 10;
-    addKey();
-}
-
 function pressUp() {
-
     user.keyUp = true;
     user.keyDown = false;
     user.keyLeft = false;
     user.keyRight = false;
-    deleteKey();
-    addKey();
-    randomKeys();
 }
 
 function pressDown() {
-
     user.keyDown = true;
     user.keyUp = false;
     user.keyLeft = false;
     user.keyRight = false;
-    deleteKey();
-    addKey();
-    randomKeys();
 }
 
 function pressLeft() {
-
     user.keyLeft = true;
     user.keyUp = false;
     user.keyDown = false;
     user.keyRight = false;
-    deleteKey();
-    addKey();
-    randomKeys();
 }
 
 function pressRight() {
-
     user.keyRight = true;
     user.keyUp = false;
     user.keyDown = false;
     user.keyLeft = false;
-    deleteKey();
-    addKey();
-    randomKeys();
 }
 
 function timerStart() {
     if (gameOn === true) {
-        gameOn = false
+        gameOn = false;
         let timer = document.querySelector("#time");
         timer.value = 10;
         let downloadTimer = setInterval(function () {
@@ -226,12 +179,12 @@ function timerStart() {
             if (timer.value <= 0) {
                 clearInterval(downloadTimer);
                 timer.value = "Finished!";
-                Swal.fire("Time's up!", "Points:", "warning");
+                Swal.fire("Time's up!", `Points: ${score.value}`, "warning");
                 gameOn = true;
             }
         }, 1000);
     } else {
-        return () => {}
+        return () => {};
     }
 }
 
@@ -239,9 +192,33 @@ function timerStop() {
     let timer = document.querySelector("#time");
     timer.value = 10;
     timer.innerHTML = timer.value;
-
 }
 
-resetBtn.addEventListener('click', () => {
-    timerStop();
-})
+resetBtn.addEventListener("click", () => {
+    timerStop()
+    assignHighScore()
+    score.value = 0;
+    score = 0
+});
+
+function correct() {
+    let imgDiv = document.querySelector(".key");
+    scoreUp();
+    imgDiv.className = "key-press-ok";
+    setTimeout(() => {
+        imgDiv.className = "key";
+    }, 100);
+    deleteKey();
+    addKey();
+}
+
+function incorrect() {
+    let imgDiv = document.querySelector(".key");
+    scoreDown();
+    imgDiv.className = "key-press-wrong";
+    setTimeout(() => {
+        imgDiv.className = "key";
+    }, 100);
+    deleteKey();
+    addKey();
+}
