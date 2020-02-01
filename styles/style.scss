@@ -50,6 +50,7 @@ body {
     padding-bottom: 20px;
 
     input {
+        text-align: center;
         max-width: 100px;
         min-width: 100px;
         border-radius: 10px;
@@ -120,6 +121,7 @@ body {
     padding: 10px;
 
     input {
+        text-align: center;
         background-color: #ffffff;
         border-style: none;
         max-width: 100px;
@@ -144,6 +146,7 @@ body {
 }
 
 footer {
+    text-align: left;
     color: #fff;
     height: 20px;
     font-size: 12px;
@@ -158,4 +161,20 @@ footer {
             color: #fff;
         }
     }
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder {
+    text-align: center;
+}
+
+::-moz-placeholder {
+    text-align: center;
+}
+
+:-ms-input-placeholder {
+    text-align: center;
 }
