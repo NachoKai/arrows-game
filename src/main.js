@@ -7,9 +7,7 @@ let keys = {
     arrowRight: 39
 }
 
-
 document.addEventListener("keydown", e => {
-
     switch (e.keyCode) {
         case keys.arrowUp:
             console.log("up")
@@ -27,3 +25,4 @@ document.addEventListener("keydown", e => {
             break
     }
 })
+
