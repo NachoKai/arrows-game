@@ -127,6 +127,9 @@ function assignHighScore() {
     if (yourScore > highScore) {
         highScore.value = yourScore;
     }
+    yourScore = 0;
+    score.value = 0;
+    score = 0;
 }
 
 function scoreDown() {
@@ -197,8 +200,6 @@ function timerStop() {
 resetBtn.addEventListener("click", () => {
     timerStop()
     assignHighScore()
-    score.value = 0;
-    score = 0
 });
 
 function correct() {
