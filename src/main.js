@@ -27,6 +27,25 @@ let timer = 0;
 
 startGame();
 
+document.addEventListener("keydown", e => {
+    switch (e.keyCode) {
+        case keys.arrowUp:
+            pressUp()
+            break;
+        case keys.arrowDown:
+            pressDown();
+            break;
+        case keys.arrowLeft:
+            pressLeft();
+            break;
+        case keys.arrowRight:
+            pressRight();
+            break;
+        default:
+            return null;
+    }
+});
+
 function randomKeys() {
     let randomNumber = Math.floor(Math.random() * 4 + 1);
 
@@ -61,9 +80,15 @@ function randomKeys() {
 }
 
 function scoreUp() {
-    if (keyUp === true) {
-        yourScore++;
-    }
+    let score = document.querySelector('#game-score')
+    yourScore++;
+    score.value = yourScore
+}
+
+function scoreDown() {
+    let score = document.querySelector("#game-score");
+    yourScore--;
+    score.value = yourScore;
 }
 
 function addKey() {
@@ -128,4 +153,44 @@ function deleteKey() {
 
 function startGame() {
     addKey();
+}
+
+function pressUp() {
+    user.keyUp = true;
+    user.keyDown = false;
+    user.keyLeft = false;
+    user.keyRight = false;
+    deleteKey();
+    addKey();
+    randomKeys();
+}
+
+function pressDown() {
+    user.keyDown = true;
+    user.keyUp = false;
+    user.keyLeft = false;
+    user.keyRight = false;
+    deleteKey();
+    addKey();
+    randomKeys();
+}
+
+function pressLeft() {
+    user.keyLeft = true;
+    user.keyUp = false;
+    user.keyDown = false;
+    user.keyRight = false;
+    deleteKey();
+    addKey();
+    randomKeys();
+}
+
+function pressRight() {
+    user.keyRight = true;
+    user.keyUp = false;
+    user.keyDown = false;
+    user.keyLeft = false;
+    deleteKey();
+    addKey();
+    randomKeys();
 }

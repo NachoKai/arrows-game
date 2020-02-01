@@ -16,6 +16,10 @@ body {
   background-color: #161616 !important;
 }
 
+input {
+  text-align: center;
+}
+
 .container {
   padding: 0px !important;
 }
