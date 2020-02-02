@@ -42,7 +42,7 @@ function addKey() {
     let img = document.createElement("img");
 
     if (randomNumber === 1) {
-        img.src = `img/right-arrow-key.png`;
+        img.src = 'img/right-arrow-key.png';
         imgDiv.appendChild(img);
         pc.keyUp = true;
         pc.keyDown = false;
@@ -50,7 +50,7 @@ function addKey() {
         pc.keyRight = false;
     }
     if (randomNumber === 2) {
-        img.src = `img/up-arrow-key.png`;
+        img.src = 'img/up-arrow-key.png';
         imgDiv.appendChild(img);
         pc.keyUp = false;
         pc.keyDown = true;
@@ -58,7 +58,7 @@ function addKey() {
         pc.keyRight = false;
     }
     if (randomNumber === 3) {
-        img.src = `img/left-arrow-key.png`;
+        img.src = 'img/left-arrow-key.png';
         imgDiv.appendChild(img);
         pc.keyUp = false;
         pc.keyDown = false;
@@ -66,7 +66,7 @@ function addKey() {
         pc.keyRight = false;
     }
     if (randomNumber === 4) {
-        img.src = `img/right-arrow-key.png`;
+        img.src = 'img/right-arrow-key.png';
         imgDiv.appendChild(img);
         pc.keyUp = false;
         pc.keyDown = false;
@@ -182,7 +182,7 @@ function timerStart() {
             if (timer.value <= 0) {
                 clearInterval(downloadTimer);
                 timer.value = "Finished!";
-                Swal.fire("Time's up!", `Points: ${score.value}`, "warning");
+                Swal.fire("Time's up!", 'Points: ${score.value}', "warning");
                 gameOn = true;
             }
         }, 1000);
