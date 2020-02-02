@@ -127,7 +127,6 @@ function assignHighScore() {
     }
     yourScore = 0;
     score.value = 0;
-    score = 0;
 }
 
 function scoreDown() {
