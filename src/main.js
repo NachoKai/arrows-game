@@ -175,7 +175,11 @@ function timerStart() {
             if (timer.value <= 0) {
                 clearInterval(downloadTimer);
                 timer.value = "Finished!";
-                Swal.fire("Time's up!", `Points: ${score.value}`, "warning");
+                Swal.fire(
+                    "Time's up!",
+                    `<b>You got ${score.value} points</b>`,
+                    "warning"
+                );
                 gameOn = true;
                 assignHighScore();
             }
@@ -192,6 +196,7 @@ function timerStop() {
 }
 
 resetBtn.addEventListener("click", () => {
+    score.value = 0;
     timerStop()
 });
 
