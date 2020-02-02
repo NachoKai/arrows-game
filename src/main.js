@@ -40,7 +40,7 @@ function addKey() {
     let img = document.createElement("img");
 
     if (randomNumber === 1) {
-        img.src = `img/right-arrow-key.png`;
+        img.src = `img/up-arrow-key.png`;
         imgDiv.appendChild(img);
         pc.keyUp = true;
         pc.keyDown = false;
@@ -48,7 +48,7 @@ function addKey() {
         pc.keyRight = false;
     }
     if (randomNumber === 2) {
-        img.src = `img/up-arrow-key.png`;
+        img.src = `img/down-arrow-key.png`;
         imgDiv.appendChild(img);
         pc.keyUp = false;
         pc.keyDown = true;
