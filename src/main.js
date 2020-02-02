@@ -121,18 +121,19 @@ function scoreUp() {
     score.value = yourScore;
 }
 
+function scoreDown() {
+    let score = document.querySelector("#game-score");
+    yourScore--;
+    score.value = yourScore;
+}
+
 function assignHighScore() {
     if (yourScore > highScore) {
         highScore.value = yourScore;
     }
     yourScore = 0;
     score.value = 0;
-}
-
-function scoreDown() {
-    let score = document.querySelector("#game-score");
-    yourScore--;
-    score.value = yourScore;
+    score = 0;
 }
 
 function deleteKey() {
