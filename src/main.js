@@ -169,7 +169,7 @@ function timerStart() {
         gameOn = false;
         let timer = document.querySelector("#time");
         timer.value = 10;
-        let downloadTimer = setInterval(function () {
+        let downloadTimer = setInterval(() => {
             timer.innerHTML = timer.value;
             timer.value -= 1;
             if (timer.value <= 0) {
