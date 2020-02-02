@@ -121,8 +121,8 @@ input {
 
 .key-press-ok img {
   border-radius: 25px;
-  max-width: 240px;
-  min-width: 240px;
+  max-width: 200px;
+  min-width: 200px;
   padding: 10px;
 }
 
@@ -135,8 +135,8 @@ input {
 
 .key-press-wrong img {
   border-radius: 25px;
-  max-width: 240px;
-  min-width: 240px;
+  max-width: 200px;
+  min-width: 200px;
   padding: 10px;
 }
 
