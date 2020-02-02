@@ -19,7 +19,6 @@ let pc = {
     keyRight: false
 };
 
-let yourScore = 0;
 let resetBtn = document.getElementById("reset");
 let score = document.querySelector("#game-score");
 let highScore = document.querySelector("#high-score");
@@ -117,23 +116,19 @@ document.addEventListener("keydown", e => {
 });
 
 function scoreUp() {
-    yourScore++;
-    score.value = yourScore;
+    score.value++;
 }
 
 function scoreDown() {
     let score = document.querySelector("#game-score");
-    yourScore--;
-    score.value = yourScore;
+    score.value--;
 }
 
 function assignHighScore() {
-    if (yourScore > highScore) {
-        highScore.value = yourScore;
+    if (score.value > highScore.value) {
+      highScore.value = score.value;
     }
-    yourScore = 0;
     score.value = 0;
-    score = 0;
 }
 
 function deleteKey() {
