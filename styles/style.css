@@ -80,6 +80,7 @@ input {
 }
 
 .table {
+  max-width: 450px;
   -ms-flex-line-pack: center;
       align-content: center;
   -webkit-box-align: center;
@@ -200,6 +201,7 @@ input {
 }
 
 footer {
+  width: 500px;
   text-align: left;
   color: #fff;
   height: 20px;
