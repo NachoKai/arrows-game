@@ -126,7 +126,7 @@ function scoreDown() {
 
 function assignHighScore() {
     if (score.value > highScore.value) {
-      highScore.value = score.value;
+        highScore.value = score.value;
     }
     score.value = 0;
 }
@@ -177,6 +177,7 @@ function timerStart() {
                 timer.value = "Finished!";
                 Swal.fire("Time's up!", `Points: ${score.value}`, "warning");
                 gameOn = true;
+                assignHighScore();
             }
         }, 1000);
     } else {
@@ -192,7 +193,6 @@ function timerStop() {
 
 resetBtn.addEventListener("click", () => {
     timerStop()
-    assignHighScore()
 });
 
 function correct() {
