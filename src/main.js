@@ -1,5 +1,3 @@
-document.getElementById("current-year").innerHTML = new Date().getFullYear();
-
 let keys = {
     arrowUp: 38,
     arrowDown: 40,
@@ -223,3 +221,5 @@ function incorrect() {
     deleteKey();
     addKey();
 }
+
+document.getElementById("current-year").innerHTML = new Date().getFullYear();
