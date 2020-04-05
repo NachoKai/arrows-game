@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   user-select: none;
@@ -237,4 +237,7 @@ img {
   max-width: 128px;
   min-width: 128px;
 }
-/*# sourceMappingURL=style.css.map */
+
+div#preload {
+  display: none;
+}
