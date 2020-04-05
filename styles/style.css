@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   user-select: none;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
   -moz-user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
@@ -13,7 +13,7 @@
 }
 
 body {
-  background-color: #161616;
+  background-color: #161616 !important;
 }
 
 input {
@@ -21,7 +21,7 @@ input {
 }
 
 .container {
-  padding: 0px;
+  padding: 0px !important;
 }
 
 .title {
@@ -120,8 +120,8 @@ input {
 
 .key-press-ok img {
   border-radius: 25px;
-  max-width: 190px;
-  min-width: 190px;
+  max-width: 190px !important;
+  min-width: 190px !important;
   padding: 10px;
 }
 
@@ -133,8 +133,8 @@ input {
 
 .key-press-wrong img {
   border-radius: 25px;
-  max-width: 190px;
-  min-width: 190px;
+  max-width: 190px !important;
+  min-width: 190px !important;
   padding: 10px;
 }
 
@@ -237,7 +237,4 @@ img {
   max-width: 128px;
   min-width: 128px;
 }
-
-div#preload {
-  display: none;
-}
+/*# sourceMappingURL=style.css.map */
